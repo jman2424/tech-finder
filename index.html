@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Modern Cyber Security Products</title>
+
   <style>
     :root {
       --bg: #ffffff;
@@ -21,7 +22,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: Inter, system-ui, sans-serif;
       line-height: 1.7;
     }
 
@@ -30,148 +31,68 @@
       margin: 0 auto;
       padding: 32px 20px 64px;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 320px;
+      grid-template-columns: 1fr 320px;
       gap: 40px;
-    }
-
-    .article-shell {
-      min-width: 0;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 18px;
     }
 
     .title {
       font-size: clamp(2.2rem, 5vw, 4rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
       font-weight: 800;
-      margin: 0 0 14px;
-      max-width: 900px;
+      margin-bottom: 10px;
     }
 
     .subtitle {
-      font-size: 1.15rem;
       color: var(--muted);
-      margin: 0 0 24px;
-      max-width: 760px;
-    }
-
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      font-size: 0.95rem;
-      color: var(--muted);
-      padding-bottom: 22px;
-      border-bottom: 1px solid var(--line);
-      margin-bottom: 28px;
-    }
-
-    .hero {
-      width: 100%;
-      min-height: 240px;
-      border-radius: 22px;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.14), transparent 24%),
-        radial-gradient(circle at 80% 30%, rgba(17, 24, 39, 0.08), transparent 24%),
-        linear-gradient(135deg, #f8fafc, #eef2ff 55%, #f8fafc);
-      border: 1px solid var(--line);
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      margin-bottom: 32px;
-      text-align: center;
-    }
-
-    .hero-label {
-      max-width: 640px;
-    }
-
-    .hero-label strong {
-      display: block;
-      font-size: 1.2rem;
-      margin-bottom: 8px;
-    }
-
-    .article {
-      max-width: 780px;
-    }
-
-    .article p {
-      font-size: 1.06rem;
-      margin: 0 0 18px;
-      color: #1f2937;
+      margin-bottom: 24px;
     }
 
     .article h2 {
-      margin: 38px 0 14px;
-      font-size: 1.55rem;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
+      margin-top: 32px;
     }
 
-    .quote {
-      border-left: 4px solid var(--accent);
-      padding: 6px 0 6px 18px;
-      margin: 28px 0;
-      font-size: 1.1rem;
-      color: #0f172a;
-      font-weight: 600;
+    .article p {
+      margin-bottom: 16px;
     }
 
     .editor {
       position: sticky;
       top: 20px;
-      align-self: start;
-      background: #ffffff;
+      background: #fff;
       border: 1px solid var(--line);
-      border-radius: 22px;
+      border-radius: 18px;
       padding: 18px;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
     }
 
-    .editor h3 {
-      margin: 0 0 10px;
-      font-size: 1.05rem;
-    }
-
-    .editor p,
-    .editor li {
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .editor ul {
-      padding-left: 18px;
-      margin: 10px 0 0;
-    }
-
+    /* PDF SECTION */
     .pdf-wrap {
-      margin-top: 36px;
+      margin-top: 40px;
       border-top: 1px solid var(--line);
       padding-top: 28px;
     }
 
-    .pdf-frame {
-      width: 100%;
-      height: 980px;
-      border: 1px solid #d1d5db;
-      border-radius: 18px;
-      background: #fff;
+    .pdf-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
 
-    .footer-space {
-      height: 30px;
+    .pdf-box {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pdf-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .pdf-frame {
+      width: 100%;
+      height: 900px;
+      border: 1px solid #d1d5db;
+      border-radius: 16px;
     }
 
     @media (max-width: 980px) {
@@ -179,135 +100,90 @@
         grid-template-columns: 1fr;
       }
 
-      .editor {
-        position: static;
+      .pdf-grid {
+        grid-template-columns: 1fr;
       }
 
       .pdf-frame {
-        height: 720px;
+        height: 600px;
       }
     }
   </style>
 </head>
+
 <body>
   <div class="page">
-    <main class="article-shell">
-      <div class="eyebrow">Technology</div>
+
+    <main>
       <h1 class="title">How Modern Cyber Security Products Work Together</h1>
+
       <p class="subtitle">
-        Firewalls, anti-virus platforms, VPN systems, and access control tools are no longer isolated products. They now operate as part of a wider security stack built to protect businesses in real time.
+        Firewalls, anti-virus platforms, VPN systems, and access control tools now operate as a unified security stack.
       </p>
 
-      <div class="meta">
-        <span>Enterprise Tech</span>
-        <span>Security Systems</span>
-        <span>Product Overview</span>
-      </div>
-
-      <section class="hero">
-        <div class="hero-label">
-          <strong>The new security stack</strong>
-          <span>
-            Businesses are moving from single-purpose tools to integrated platforms that combine visibility, control, and threat response across the network.
-          </span>
-        </div>
-      </section>
-
-      <article class="article">
-        <p>
-          Modern cyber security is defined less by one product and more by how several products work together. A business may rely on a firewall to control traffic, anti-virus software to detect malicious files, a VPN to secure remote access, and access controls to decide who can reach sensitive systems.
-        </p>
+      <div class="article">
 
         <h2>Why firewalls still matter</h2>
         <p>
-          Firewalls remain one of the most important technologies in any security environment. Traditional packet filtering firewalls inspect traffic using IP addresses, protocols, and ports, while stateful inspection firewalls go further by tracking active connections and judging whether traffic should be trusted based on connection state.
-        </p>
-        <p>
-          For larger environments, hardware firewalls provide centralised protection at network level, while software firewalls focus on individual devices. Cloud-delivered options such as Firewall as a Service extend these controls even further by giving businesses a way to apply security rules without maintaining physical firewall hardware on site.
+          Firewalls control incoming and outgoing traffic, forming the first line of defense.
         </p>
 
         <h2>The rise of cloud-based protection</h2>
         <p>
-          Firewall as a Service has become more attractive as companies expand across multiple offices and support more remote workers. Instead of deploying and maintaining physical appliances everywhere, businesses can manage policy centrally through a cloud platform. That makes rollouts quicker, reduces hardware overhead, and simplifies scaling.
-        </p>
-        <p>
-          The trade-off is that cloud-based traffic inspection depends heavily on internet performance and trust in the provider’s platform. That makes provider choice and service design critical.
+          Cloud security platforms allow centralized control across multiple locations.
         </p>
 
-        <h2>Anti-virus is no longer just signature matching</h2>
+        <h2>Anti-virus evolution</h2>
         <p>
-          Anti-virus technology has moved well beyond detecting known virus signatures. Modern products focus on behaviour analysis, anomaly detection, phishing protection, real-time monitoring, and rapid threat response. This matters because many modern threats do not look like old-school malware and often try to bypass static detection methods.
-        </p>
-        <p>
-          In business environments, the real value of anti-virus software comes from how well it integrates with other tools. A security platform that shares intelligence between endpoint protection, network controls, and monitoring systems can react faster and more accurately than stand-alone software.
+          Modern anti-virus uses behavior analysis, not just signatures.
         </p>
 
-        <div class="quote">
-          The strongest products are rarely the ones that work alone. They are the ones that fit cleanly into a wider security system.
-        </div>
-
-        <h2>VPNs and the remote workforce</h2>
+        <h2>VPNs and remote work</h2>
         <p>
-          As remote work became normal, VPNs turned from optional infrastructure into a core technology product. Their job is simple in principle: encrypt data and provide secure access to internal systems from outside the office. In practice, business VPNs now include far more than encrypted tunnels.
-        </p>
-        <p>
-          Enterprise-focused VPN platforms offer features such as dedicated IP addresses, custom DNS, segmentation, posture checks, site-to-site connectivity, biometric authentication, and policy-based remote access. Products like Perimeter 81 and Cisco-based VPN systems reflect how seriously vendors now treat remote access as part of broader enterprise security.
+          VPNs secure remote connections and are now essential infrastructure.
         </p>
 
-        <h2>Access control as a product layer</h2>
+        <h2>Access control</h2>
         <p>
-          A secure system is not just about blocking threats from outside. It is also about controlling what legitimate users can access once they are inside. That is where access control enters the picture. Role-Based Access Control, multi-factor authentication, domain-based identity management, and device trust checks all help define who should see what and when.
-        </p>
-        <p>
-          These products and controls reduce internal risk, improve accountability, and help security teams apply permissions in a structured way instead of relying on loose manual rules.
-        </p>
-
-        <h2>Comparing integrated enterprise platforms</h2>
-        <p>
-          One of the biggest shifts in the market is the demand for integrated products. Rather than buying a separate firewall, separate endpoint product, separate VPN, and separate monitoring platform with no real coordination, many businesses now prefer systems that bring these capabilities together.
-        </p>
-        <p>
-          That is where products such as Cisco ASA, Cisco AMP, and Perimeter 81 stand out. Each offers a different balance of network security, cloud flexibility, management experience, support, and scalability. For some organisations, a hardware-led solution makes sense. For others, a cloud-managed platform provides faster deployment and better fit.
-        </p>
-
-        <h2>The business value of centralisation</h2>
-        <p>
-          Centralised security products can reduce complexity. They cut down on duplicated admin work, improve visibility, and make it easier to apply security policy consistently across devices, offices, and remote users. That does not automatically make them better in every scenario, but it does explain why product design is moving so strongly in that direction.
-        </p>
-        <p>
-          In practice, organisations are not just buying protection. They are buying manageability, support, scalability, and better control over how security decisions are made.
-        </p>
-
-        <h2>Compliance, risk, and product design</h2>
-        <p>
-          Security products also exist within a legal and regulatory environment. Businesses need tools that help reduce exposure to unauthorised access, fraud, malware, and data misuse while supporting broader compliance expectations. That is why firewall functions, anti-virus detection, authentication layers, and data protection tools are now often discussed together rather than separately.
+          Controls define who can access what within a system.
         </p>
 
         <h2>Technical source material</h2>
         <p>
-          The embedded document below contains the original technical reference material used for the product breakdown, including more detailed comparisons, feature lists, and vendor-specific information.
+          Both guides are embedded below for direct comparison.
         </p>
 
+        <!-- 🔥 NEW SIDE BY SIDE PDF SECTION -->
         <div class="pdf-wrap">
-          <iframe class="pdf-frame" src="/guide.pdf#page=6"></iframe>
-        </div>
-      </article>
+          <div class="pdf-grid">
 
-      <div class="footer-space"></div>
+            <div class="pdf-box">
+              <div class="pdf-label">Pass Guide</div>
+              <iframe class="pdf-frame" src="/guide.pdf#page=6"></iframe>
+            </div>
+
+            <div class="pdf-box">
+              <div class="pdf-label">Distinction Guide</div>
+              <iframe class="pdf-frame" src="/guide1.pdf#page=6"></iframe>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
     </main>
 
     <aside class="editor">
       <h3>Inside this article</h3>
-      <p>This page focuses on how modern security products fit together in a real business environment.</p>
       <ul>
-        <li><strong>Firewalls</strong> and traffic control</li>
-        <li><strong>Anti-virus</strong> and threat detection</li>
-        <li><strong>VPNs</strong> for secure remote access</li>
-        <li><strong>Access control</strong> and identity layers</li>
-        <li><strong>Integrated platforms</strong> such as Cisco and Perimeter 81</li>
+        <li>Firewalls</li>
+        <li>Anti-virus</li>
+        <li>VPN</li>
+        <li>Access control</li>
+        <li>Integrated systems</li>
       </ul>
-      <p>The PDF is embedded directly into the page so the supporting technical document can be viewed without leaving the site.</p>
     </aside>
+
   </div>
 </body>
 </html>
